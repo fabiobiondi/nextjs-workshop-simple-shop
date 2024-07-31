@@ -1,4 +1,3 @@
-// /api/youtube-videos.api.ts
 import { Product } from '@/model/product';
 
 export async function getProducts(limit?: number): Promise<Product[]> {
