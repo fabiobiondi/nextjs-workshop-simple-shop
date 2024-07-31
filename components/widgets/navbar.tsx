@@ -1,12 +1,11 @@
 'use client';
 
-import { selectIsCartEmtpy, selectTotalCost, selectTotalItems, useCart } from '@/store/use-cart';
+import CartSummary from '@/components/widgets/cart-summary';
+import { selectTotalItems, useCart } from '@/store/use-cart';
 import Link from 'next/link';
 
 export default function Navbar () {
   const totalCartItems = useCart(selectTotalItems)
-  const totalCost = useCart(selectTotalCost)
-  const isEmpty = useCart(selectIsCartEmtpy)
 
   return (
     <div className="navbar bg-base-200 sticky top-0 z-50">
@@ -38,16 +37,7 @@ export default function Navbar () {
             tabIndex={0}
             className="card card-compact dropdown-content bg-base-200 z-[1] mt-3 w-52 shadow">
             <div className="card-body">
-              <span className="text-lg font-bold">{totalCartItems} Items</span>
-              <span className="text-info">Subtotal: € {totalCost}</span>
-              {
-                !isEmpty && (
-                  <div className="card-actions">
-                    <Link href="/cart" className="btn btn-primary btn-block">View cart</Link>
-                  </div>
-                )
-              }
-
+              <CartSummary />
             </div>
           </div>
         </div>

@@ -28,6 +28,7 @@ export const useCart = create<CartState>((set, get) => ({
 }))
 
 // selectors
+export const selectCartItems = (state: CartState) => state.list
 export const selectTotalItems = (state: CartState) => state.list.length
 export const selectTotalCost = (state: CartState) => state.list.reduce((acc, item) => acc + item.cost, 0);
 export const selectIsCartEmtpy = (state: CartState) => state.list.length === 0
