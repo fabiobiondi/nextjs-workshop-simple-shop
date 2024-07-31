@@ -1,11 +1,6 @@
-import { addToCartAction, useCart } from '@/store/use-cart';
-import Image from 'next/image';
-
 const products = [null,null,null,null,null,null,null]
 
 export default function Shop () {
-  const addToCart = useCart(addToCartAction);
-
   return <div>
 
     <h1 className="widget-title">SHOP</h1>
@@ -15,7 +10,7 @@ export default function Shop () {
           return (
             <div className="card bg-base-100  shadow-xl" key={i}>
               <figure>
-                <Image
+                <img
                   src="https://res.cloudinary.com/my-notes-demo/image/upload/v1712149831/tutorial-content/video-corsi/ngrx/image-keychains/github-2.jpg"
                   alt="Producgt Name"/>
               </figure>
