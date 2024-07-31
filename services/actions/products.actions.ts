@@ -2,7 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const API = 'https://json-server-vercel-for-tutorials.vercel.app/products ';
+const API = 'https://json-server-vercel-for-tutorials.vercel.app/products';
 
 export async function createTodo(
   prevState: {
