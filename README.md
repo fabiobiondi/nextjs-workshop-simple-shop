@@ -20,4 +20,20 @@
 * Custom Markdown Elements
 
 
-# IOT / Endpoint
+# Custom Endpoints
+
+## Uppercase (demo)
+Convert strings in UPPERCASE
+
+* url: http://localhost:3000/api/demo?name=fabio
+
+## Get Products (demo)
+Data Fetching example
+* url: http://localhost:3000/api/get-products
+
+## Add Product to DB
+Add a product to our DB
+
+* url: http://localhost:3000/api/add-product
+* method POST
+* body: { "name": "test", "id": 18  }
