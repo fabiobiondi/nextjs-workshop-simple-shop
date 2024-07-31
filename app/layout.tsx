@@ -1,4 +1,5 @@
-import Navbar from '@/components/utilities/navbar';
+import Footerbar from '@/components/widgets/footerbar';
+import Navbar from '@/components/widgets/navbar';
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -23,6 +24,7 @@ export default function RootLayout({
         <div className="max-w-screen-lg  mx-3 lg:mx-auto">
           {children}
         </div>
+        <Footerbar />
       </body>
     </html>
   );
