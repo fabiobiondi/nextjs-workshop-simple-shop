@@ -2,9 +2,7 @@
 import { revalidatePath } from "next/cache";
 import { z } from "zod";
 
-const API = 'https://json-server-vercel-for-tutorials.vercel.app/products';
-
-export async function createTodo(
+export async function addProduct(
   prevState: {
     message: string,
     status: number
@@ -26,7 +24,7 @@ export async function createTodo(
   const data = parse.data;
 
   try {
-    const response = await fetch(`${API}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -48,7 +46,7 @@ export async function createTodo(
 
 }
 
-export async function deleteTodo(
+export async function deleteProduct(
   prevState: {
     message: string,
     status: number
@@ -65,7 +63,7 @@ export async function deleteTodo(
   });
 
   try {
-    const response = await fetch(`${API}/${data.id}`, {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/products/${data.id}`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
