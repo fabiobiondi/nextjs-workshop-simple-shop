@@ -6,10 +6,11 @@ export default function Hero () {
     <div className="hero">
       <div className="hero-content flex-col lg:flex-row">
         <Image
-          width={1412/3}
-          height={1892/3}
+          width={1412/6}
+          height={1892/6}
           alt="Logo Fb"
           src="/logo-fb.png"
+          loading="eager"
           className="max-w-sm rounded-lg "/>
         <div>
           <h1 className="text-5xl font-bold">Geek Gadgets</h1>
