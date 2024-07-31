@@ -1,6 +1,6 @@
 "use client";
 
-import { createTodo } from '@/services/actions/products.actions';
+import { addProduct } from '@/services/actions/products.actions';
 import { useFormState } from "react-dom";
 import { useFormStatus } from "react-dom";
 
@@ -23,7 +23,7 @@ function SubmitButton() {
 }
 
 export function AddForm() {
-  const [state, formAction] = useFormState(createTodo, initialState);
+  const [state, formAction] = useFormState(addProduct, initialState);
 
   return (
     <form action={formAction}>

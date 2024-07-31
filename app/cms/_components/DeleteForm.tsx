@@ -3,7 +3,7 @@
 "use client";
 
 import { Product } from '@/model/product';
-import { deleteTodo } from '@/services/actions/products.actions';
+import { deleteProduct } from '@/services/actions/products.actions';
 import { useFormState, useFormStatus } from "react-dom";
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
 };
 
 export function DeleteForm({ product }: { product: Product }) {
-  const [state, formAction] = useFormState(deleteTodo, initialState);
+  const [state, formAction] = useFormState(deleteProduct, initialState);
 
   return (
     <form action={formAction}>
