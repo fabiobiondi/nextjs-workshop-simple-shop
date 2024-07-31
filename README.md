@@ -2,11 +2,22 @@
 # Home
 
 * Split View in Components
-* Client e Server components
 * Fetch
-* Server Action + Endpoint 
+* Client e Server components
+* Suspense & HTML Streaming
+* Server Action 
+* SSG vs SSR
 
+# Shop
+* Fetch + Server Component
+* State Management with Zustand (Cart)
 
-MDX
-* Route Markdown
+# CMS
+* CRUD with Server Action
+
+# About / Blog
+* Markdown Routes
 * Custom Markdown Elements
+
+
+# IOT / Endpoint
