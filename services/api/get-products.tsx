@@ -3,7 +3,7 @@ import { Product } from '@/model/product';
 export async function getProducts(limit?: number): Promise<Product[]> {
 
   const res = await fetch(
-    `https://json-server-vercel-for-tutorials.vercel.app/products?_limit=${limit || ''}`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/products?_limit=${limit || ''}`,
     {
       //  cache: 'force-cache',
       //  cache: 'force-cache',

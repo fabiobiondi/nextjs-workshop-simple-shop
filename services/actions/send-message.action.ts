@@ -20,7 +20,8 @@ export async function sendMessageAction(
   const data = parse.data;
 
   try {
-    const response = await fetch('https://json-server-vercel-for-tutorials.vercel.app/send', {
+    // const response = await fetch('https://json-server-vercel-for-tutorials.vercel.app/send', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/send`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

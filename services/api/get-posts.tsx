@@ -3,7 +3,7 @@ import { Post } from '@/model/post';
 export async function getPosts(): Promise<Post[]> {
 
   const res = await fetch(
-    `https://json-server-vercel-for-tutorials.vercel.app/posts`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/posts`,
     {
       //  cache: 'force-cache',
       // cache: 'no-store',
@@ -17,7 +17,7 @@ export async function getPosts(): Promise<Post[]> {
 export async function getPost(id: number): Promise<Post> {
 
   const res = await fetch(
-    `https://json-server-vercel-for-tutorials.vercel.app/posts/${id}`,
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/posts/${id}`,
     {
       //  cache: 'force-cache',
       // cache: 'no-store',

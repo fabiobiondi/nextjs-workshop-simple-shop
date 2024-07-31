@@ -5,6 +5,7 @@ export default function Footerbar () {
     <div className="flex gap-3 justify-end">
       <Link href="/about" className="btn btn-link">About</Link>
       <Link href="/blog" className="btn btn-link">Blog</Link>
+      <Link href="/cms" className="btn btn-link">CMS</Link>
 
     </div>
   </div>
