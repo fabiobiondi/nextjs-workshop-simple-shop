@@ -7,7 +7,7 @@ interface NewsletterButton {
   sent: boolean
 }
 
-export default function NewsletterButton(props: NewsletterButton) {
+export default function ContactFormButton(props: NewsletterButton) {
   const status = useFormStatus()
   return <>
     <button

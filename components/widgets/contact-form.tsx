@@ -1,5 +1,5 @@
 'use client'
-import NewsletterButton from '@/components/widgets/contact-form-button';
+import ContactFormButton from '@/components/widgets/contact-form-button';
 import { sendMessageAction } from '@/services/actions/send-message.action';
 import { useFormState } from 'react-dom';
 
@@ -58,7 +58,7 @@ export default function ContactForm () {
             </div>
 
             <div className="form-control mt-6">
-              <NewsletterButton sent={emailSent}/>
+              <ContactFormButton sent={emailSent}/>
             </div>
           </form>
         </div>
