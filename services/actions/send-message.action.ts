@@ -1,45 +1,47 @@
 "use server";
-import { z } from "zod"; //  npm i zod
+
+import { z } from 'zod';
 
 export async function sendMessageAction(
-  prevState: { message: string, status: number},
+  prevState: { serverMessage: string, status: number},
   formData: FormData
 ) {
-  const schema = z.object({
-    email: z.string().min(3),
-  });
-  const parse = schema.safeParse({
-    email: formData.get("email"),
-    //email: z.string().email()
-  });
 
+  const email = formData.get("email");
+  const message = formData.get("message");
+
+  const schema = z.object({
+    email: z.string().email(),
+    message: z.string().min(3),
+  });
+  const parse = schema.safeParse({ email, message });
 
   if (!parse.success) {
-    return { message: "validation failed", status: 404 };
+    return { serverMessage: "validation failed", status: 400 };
   }
-  const data = parse.data;
 
   try {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/send`, {
-      method: 'GET',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
         'apiKey': '123'
         // Add other headers as needed, like authorization tokens
       },
-      // body: JSON.stringify({ email: data.email }),
+      body: JSON.stringify({ email, message }),
     });
+    console.log(email, message)
 
     if (!response.ok) {
-      return { message: "Failed to send email #1", status: 404  };
+      return { serverMessage: "Failed to send email #1", status: 500  };
     }
 
+    console.log('sent', email, message)
     // revalidatePath("/");
-    return { message: `Email sent to ${data.email}`, status: 200 }
+    return { serverMessage: `Email sent to ${email}`, status: 200 }
 
   } catch(error) {
     // network problems, DNS lookup failures, ...
-    return { message: "Failed to sent email #2", status: 404  };
+    return { serverMessage: "Failed to sent email #2", status: 500  };
   }
-
 }
