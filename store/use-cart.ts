@@ -1,5 +1,3 @@
-// store/cart.store.ts
-
 import { Product } from '@/model/product';
 import { create } from 'zustand';
 
@@ -10,21 +8,36 @@ export interface CartState {
   clearCart: () => void;
 }
 
+const getInitialState = () => {
+  const cartFromLocalStorage = localStorage.getItem("cart");
+  if  (cartFromLocalStorage) {
+    return JSON.parse(cartFromLocalStorage)
+  }
+  return []
+}
+
+const updateLocalStorage = (product: Product[]) => {
+  localStorage.setItem('cart', JSON.stringify(product));
+}
+
 export const useCart = create<CartState>((set, get) => ({
-  list: [],
+  list: getInitialState(),
   addToCart: (productToAdd: Product) => {
     set(state => ({
       list: [...state.list, productToAdd]
     }))
+    updateLocalStorage( get().list )
   },
   removeFromCart: (productToRemove: Product) => {
     set(state => ({
       list: state.list.filter(p => p.id !== productToRemove.id)
     }))
-
+    updateLocalStorage( get().list )
   },
   clearCart: () => {
-    set(state => ({ list: [] }))},
+    set(state => ({ list: [] }))
+    updateLocalStorage( get().list )
+  }
 }))
 
 // selectors
