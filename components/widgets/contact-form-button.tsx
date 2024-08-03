@@ -1,7 +1,7 @@
 "use client";
 
 import Loader from '@/components/utilities/loader';
-import { useFormStatus, useFormState} from "react-dom";
+import { useFormStatus } from "react-dom";
 
 interface NewsletterButton {
   sent: boolean
